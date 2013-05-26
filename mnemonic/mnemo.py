@@ -40,7 +40,7 @@ http://stackoverflow.com/questions/4574509/python-remove-duplicate-chars-using-r
 import re,sys
 
 class major:
-   codes = [('r'),('t','d'),('n','ñ'),('m',),('c[bcdfgjklmnpqrstvwxyz]','ca','co','cu','k','q'),('l'),('s','z','ce','ci'),('j','f','ge','gi'),('ch','ga','go','gu','sh'),('p','v','b')]
+   codes = [('r'),('t','d'),('n','ñ'),('m',),('c[bcdfgjklmnpqrstvwxyz]','ca','co','cu','k','q'),('l','y'),('s','z','ce','ci'),('j','f','ge','gi'),('ch','ga','go','gu','sh'),('p','v','b')]
    def encode(self,word):
       word = re.sub(r'([a-z])\1+', r'\1', word) #remove dupplicate continous letters
       matches = []
