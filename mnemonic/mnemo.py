@@ -35,12 +35,14 @@ http://docs.python.org/2/library/re.html#match-objects
 http://stackoverflow.com/questions/522563/accessing-the-index-in-python-for-loops
 http://www.tutorialspoint.com/python/string_replace.htm
 http://stackoverflow.com/questions/419163/what-does-if-name-main-do
+http://stackoverflow.com/questions/4574509/python-remove-duplicate-chars-using-regex
 """
 import re,sys
 
-class mayor:
-   codes = [('r{1,2}'),('t','d'),('n','ñ'),('m',),('c[bcdfgjklmnpqrstvwxyz]','ca','co','cu','k','q'),('l{1,2}'),('s','z','ce','ci'),('j','f','ge','gi'),('ch','ga','go','gu','sh'),('p','v','b')]
-   def encode_word(self,word):
+class major:
+   codes = [('r'),('t','d'),('n','ñ'),('m',),('c[^aeiouh]','ca','co','cu','k','q','c$'),('l','y'),('s','z','ce','ci','x'),('j','f','ge','gi'),('ch','ga','go','gu','sh','g[^aeiou]'),('p','v','b')]
+   def encode(self,word):
+      word = re.sub(r'([a-z])\1+', r'\1', word) #remove dupplicate continous letters
       matches = []
       for idx,code in enumerate(self.codes):
          for pattern in code:
@@ -52,9 +54,9 @@ class mayor:
       num_string = ""
       for start,idx in matches_sorted:
           num_string += str(idx)
-      return num_string.replace("00","0").replace("55","5") # ll and rr should account for l and r respectively
+      return num_string # ll and rr should account for l and r respectively
 
 if __name__ == "__main__":
-   m = mayor()
+   m = major()
    for word in sys.argv[1:]:
-      print m.encode_word(word)
+      print m.encode(word)
