@@ -21,10 +21,15 @@ Reglas fonéticas:
 Uso:
 python mayor.py word1 word2 wordN
 
+requieres the hyphen module
+$ pip install hyphen
+
 """
 import re,sys
 from hyphen import Hyphenator
 from hyphen.dictools import *
+
+if not is_installed('es_MX'): install('es_MX')
 
 class major:
     patterns = [('^r',),('^t','^d'),('^n','^ñ'),('^m',),('^c[^aeiouh]','^ca','^co','^cu','^k','^q'),('^l','^y'),('^s','^z','^ce','^ci'),('^j','^f','^ge','^gi'),('^ch','^ga','^go','^gu','^sh','^g[^aeiou]'),('^p','^v','^b')]
