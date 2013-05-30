@@ -21,8 +21,8 @@ Reglas fonéticas:
 Uso:
 python mayor.py word1 word2 wordN
 
-requieres the hyphen module
-$ pip install hyphen
+requires the hyphen module
+$ pip install pyhyphen
 
 """
 import re,sys
